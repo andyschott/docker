@@ -1,0 +1,30 @@
+version: '3'
+services:
+  backend:
+    build: ../MaxPowerLevel/
+    restart: unless-stopped
+    expose:
+      - "80"
+    env_file:
+      - ../MaxPowerLevel/environment.txt
+    volumes:
+      - ./docker_data/MaxPowerLevel:/root/Destiny2Manifest
+    networks:
+      - my-network
+  nginx:
+    depends_on:
+      - backend
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    networks:
+      - my-network
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+networks:
+  my-network:
