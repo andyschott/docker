@@ -11,9 +11,22 @@ services:
       - ./docker_data/MaxPowerLevel:/root/Destiny2Manifest
     networks:
       - my-network
+  biblereadings:
+    image: andyschott/services:biblereadings
+    expose:
+      - "5000"
+    ports:
+      - "5000:80"
+    env_file:
+      - ../BibleReadings2/environment.txt
+    volumes:
+      - ./biblereadings_data/:/root/data/
+    networks:
+      - my-network
   nginx:
     depends_on:
       - backend
+      - biblereadings
     image: nginx
     restart: unless-stopped
     ports:
