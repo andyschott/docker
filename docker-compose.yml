@@ -14,9 +14,7 @@ services:
   biblereadings:
     image: andyschott/services:biblereadings
     expose:
-      - "5000"
-    ports:
-      - "5000:80"
+      - "80"
     env_file:
       - ./biblereadings/environment.txt
     volumes:
