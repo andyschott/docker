@@ -18,9 +18,9 @@ services:
     ports:
       - "5000:80"
     env_file:
-      - ../BibleReadings2/environment.txt
+      - ./biblereadings2/environment.txt
     volumes:
-      - ./biblereadings_data/:/root/data/
+      - ./biblereadings2/data/:/root/data/
     networks:
       - my-network
   nginx:
