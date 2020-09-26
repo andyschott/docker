@@ -21,10 +21,20 @@ services:
       - ./biblereadings/data/:/root/data/
     networks:
       - my-network
+  payoutbot:
+    image: andyschott/services:payoutbot
+    expose:
+      - "80"
+    env_file:
+      - ./payoutbot/environment.txt
+    volumees:
+      - ./payoutbot/data:/app/data/
+    networks: my-network
   nginx:
     depends_on:
       - backend
       - biblereadings
+      - payoutbot
     image: nginx
     restart: unless-stopped
     ports:
