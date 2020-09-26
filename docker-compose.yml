@@ -29,7 +29,8 @@ services:
       - ./payoutbot/environment.txt
     volumees:
       - ./payoutbot/data:/app/data/
-    networks: my-network
+    networks:
+      - my-network
   nginx:
     depends_on:
       - backend
