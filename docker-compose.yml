@@ -27,7 +27,7 @@ services:
       - "80"
     env_file:
       - ./payoutbot/environment.txt
-    volumees:
+    volumes:
       - ./payoutbot/data:/app/data/
     networks:
       - my-network
