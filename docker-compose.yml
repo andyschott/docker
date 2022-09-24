@@ -22,7 +22,6 @@ services:
       - my-network
   nginx:
     depends_on:
-      - backend
       - biblereadings
       - payoutbot
     image: nginx
