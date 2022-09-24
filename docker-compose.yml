@@ -1,16 +1,5 @@
 version: '3'
 services:
-  backend:
-    image: andyschott/services:maxpowerlevel
-    restart: unless-stopped
-    expose:
-      - "80"
-    env_file:
-      - ./MaxPowerLevel/environment.txt
-    volumes:
-      - ./MaxPowerLevel/data:/root/Destiny2Manifest
-    networks:
-      - my-network
   biblereadings:
     image: andyschott/services:biblereadings
     expose:
