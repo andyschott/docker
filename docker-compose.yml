@@ -21,7 +21,7 @@ services:
     networks:
       - my-network
   swgoh-comlink:
-    image: ghcr.io/swogh-utils/swogh-comlink:latest
+    image: ghcr.io/swgoh-utils/swgoh-comlink:latest
     env_file:
       - ./swgoh-comlink/environment.txt
     ports:
