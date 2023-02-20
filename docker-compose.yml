@@ -20,6 +20,14 @@ services:
       - ./payoutbot/data:/app/data/
     networks:
       - my-network
+  swgoh-comlink:
+    image: ghcr.io/swogh-utils/swogh-comlink:latest
+    env_file:
+      - ./swgoh-comlink/environment.txt
+    ports:
+      - "3200:3000"
+    networks:
+      - my-network      
   nginx:
     depends_on:
       - biblereadings
