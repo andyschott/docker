@@ -25,13 +25,14 @@ services:
     env_file:
       - ./swgoh-comlink/environment.txt
     ports:
-      - "3200:3000"
+      - "80:3000"
     networks:
       - my-network
   nginx:
     depends_on:
       - biblereadings
       - payoutbot
+      - swgoh-comlink
     image: nginx
     restart: unless-stopped
     ports:
