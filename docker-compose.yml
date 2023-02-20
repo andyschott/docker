@@ -27,7 +27,7 @@ services:
     ports:
       - "3200:3000"
     networks:
-      - my-network      
+      - my-network
   nginx:
     depends_on:
       - biblereadings
