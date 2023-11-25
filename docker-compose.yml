@@ -3,7 +3,7 @@ services:
   biblereadings:
     image: andyschott/services:biblereadings
     ports:
-      - "80:8080"
+      - "8080"
     env_file:
       - ./biblereadings/environment.txt
     volumes:
