@@ -24,7 +24,6 @@ services:
     depends_on:
       - biblereadings
       - payoutbot
-      - swgoh-comlink
     image: nginx
     restart: unless-stopped
     ports:
