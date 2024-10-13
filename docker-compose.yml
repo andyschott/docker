@@ -20,14 +20,6 @@ services:
       - ./payoutbot/data:/app/data/
     networks:
       - my-network
-  swgoh-comlink:
-    image: ghcr.io/swgoh-utils/swgoh-comlink:latest
-    env_file:
-      - ./swgoh-comlink/environment.txt
-    expose:
-      - "3000"
-    networks:
-      - my-network
   nginx:
     depends_on:
       - biblereadings
